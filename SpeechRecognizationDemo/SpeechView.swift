@@ -64,6 +64,7 @@ class SpeechView: UIView {
 private typealias PrivateFunctions = SpeechView
 private typealias PublicFunctions = SpeechView
 
+//MARK:- Private functions
 fileprivate extension PrivateFunctions {
     ///func for start speech recognization task.
     func recognizeSpeech() {
@@ -143,6 +144,7 @@ fileprivate extension PrivateFunctions {
     
 }
 
+//MARK: Public Functions
 extension PublicFunctions {
     ///Request for Speech Authorization. Take the permission from users for using speech recognization.
     func requestSpeechAuthorization() {
