@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Speech View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SpeechViewController" customModule="SpeechRecognizationDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,111 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fkM-mY-Gxz" customClass="SpeechView" customModule="SpeechRecognizationDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="526" width="375" height="140"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8D-B8-elM">
+                                        <rect key="frame" x="122.5" y="0.0" width="130" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwu-1G-Caj" userLabel="pointview">
+                                                <rect key="frame" x="8" y="12.5" width="10" height="10"/>
+                                                <color key="backgroundColor" red="0.8784313725490196" green="0.46274509803921571" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="gho-Ev-uEv"/>
+                                                    <constraint firstAttribute="width" constant="10" id="uje-cI-JDa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on Mic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKI-cm-Oop">
+                                                <rect key="frame" x="28" y="7" width="83.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.87843137250000003" green="0.46274509800000002" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cKI-cm-Oop" firstAttribute="centerY" secondItem="Mwu-1G-Caj" secondAttribute="centerY" id="01U-rX-6Yb"/>
+                                            <constraint firstItem="cKI-cm-Oop" firstAttribute="leading" secondItem="Mwu-1G-Caj" secondAttribute="trailing" constant="10" id="Lg1-VG-DxR"/>
+                                            <constraint firstAttribute="height" constant="35" id="YeJ-fb-jnH"/>
+                                            <constraint firstItem="Mwu-1G-Caj" firstAttribute="centerY" secondItem="P8D-B8-elM" secondAttribute="centerY" id="ZSN-Ee-cyu"/>
+                                            <constraint firstAttribute="width" constant="130" id="iqa-hs-qNe"/>
+                                            <constraint firstItem="Mwu-1G-Caj" firstAttribute="leading" secondItem="P8D-B8-elM" secondAttribute="leading" constant="8" id="qsR-vI-UNE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XI0-sp-97s">
+                                        <rect key="frame" x="147.5" y="48" width="80" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Ayd-FC-vzQ"/>
+                                            <constraint firstAttribute="width" constant="80" id="co4-AX-MR8"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl5-iL-9IJ">
+                                        <rect key="frame" x="147" y="48" width="80" height="80"/>
+                                        <color key="tintColor" red="0.61416242824850142" green="0.32677180606450906" blue="0.40734373030302251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="ic_speech_mic"/>
+                                        <state key="highlighted" image="ic_speech_mic-1"/>
+                                        <connections>
+                                            <action selector="start_btnClicked:" destination="fkM-mY-Gxz" eventType="touchUpInside" id="ucg-dO-Cb5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XI0-sp-97s" secondAttribute="bottom" constant="12" id="4EV-bc-434"/>
+                                    <constraint firstItem="P8D-B8-elM" firstAttribute="centerX" secondItem="fkM-mY-Gxz" secondAttribute="centerX" id="8Bu-DT-nN0"/>
+                                    <constraint firstItem="Xl5-iL-9IJ" firstAttribute="width" secondItem="XI0-sp-97s" secondAttribute="width" id="GGh-KG-gp9"/>
+                                    <constraint firstAttribute="height" constant="140" id="GSV-DL-ZBr"/>
+                                    <constraint firstItem="P8D-B8-elM" firstAttribute="top" secondItem="fkM-mY-Gxz" secondAttribute="top" id="V8x-UO-ACJ"/>
+                                    <constraint firstItem="Xl5-iL-9IJ" firstAttribute="height" secondItem="XI0-sp-97s" secondAttribute="height" id="Vnq-Io-Yg1"/>
+                                    <constraint firstItem="Xl5-iL-9IJ" firstAttribute="centerX" secondItem="XI0-sp-97s" secondAttribute="centerX" id="a3c-1N-laj"/>
+                                    <constraint firstItem="Xl5-iL-9IJ" firstAttribute="centerY" secondItem="XI0-sp-97s" secondAttribute="centerY" id="d1f-10-88U"/>
+                                    <constraint firstItem="XI0-sp-97s" firstAttribute="centerX" secondItem="fkM-mY-Gxz" secondAttribute="centerX" id="e3y-1i-I9Q"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="circleView" destination="XI0-sp-97s" id="V10-9G-USP"/>
+                                    <outlet property="lblStatus" destination="cKI-cm-Oop" id="XiH-62-EUq"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuK-fl-tL0">
+                                <rect key="frame" x="20" y="42" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fkM-mY-Gxz" secondAttribute="trailing" id="5Kj-Mi-6AM"/>
+                            <constraint firstAttribute="trailing" secondItem="cuK-fl-tL0" secondAttribute="trailing" constant="20" symbolic="YES" id="I1h-BS-EQr"/>
+                            <constraint firstItem="cuK-fl-tL0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IxU-r6-uc5"/>
+                            <constraint firstAttribute="bottom" secondItem="fkM-mY-Gxz" secondAttribute="bottom" constant="1" id="Kbq-FU-nP0"/>
+                            <constraint firstItem="cuK-fl-tL0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="ZMF-Zh-2Vq"/>
+                            <constraint firstItem="fkM-mY-Gxz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mqg-ZC-KVW"/>
+                            <constraint firstItem="cuK-fl-tL0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="qSN-M9-NC6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblResult" destination="cuK-fl-tL0" id="t3K-9n-CaN"/>
+                        <outlet property="speechView" destination="fkM-mY-Gxz" id="0lp-zs-vvc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_speech_mic" width="24" height="24"/>
+        <image name="ic_speech_mic-1" width="32" height="32"/>
+    </resources>
 </document>

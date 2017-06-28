@@ -7,19 +7,39 @@
 //
 
 import UIKit
+import Speech
 
-class ViewController: UIViewController {
+class SpeechViewController: UIViewController {
 
+
+    @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet weak var speechView: SpeechView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        speechView.requestSpeechAuthorization()
+        setSpeechViewBlocks()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setSpeechViewBlocks() {
+        speechView.resultBlock = {[unowned self] str in
+         self.lblResult.text = str
+        }
+        
+        speechView.errorBlock = {error in
+           print(error.localizedDescription)
+        }
     }
+}
 
+
+extension SpeechViewController {
+    ///func for recognize live speech. Just tap on Start button and speek, you would see your words as text.
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Speech Recognizer Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 
 }
 
